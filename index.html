@@ -38,57 +38,124 @@
   </head>
   <body>
     <header>
-      <nav class="font-mulish">
-        <div
-          class="bg-base-100 container mx-auto my-8 px-2 lg:px-16 flex justify-between"
-        >
-          <div class="w-full">
-            <a class="btn btn-ghost font-black text-4xl">ReTro</a>
-          </div>
-          <div class="w-full">
-            <div class="flex gap-x-2 justify-center">
-              <div class="tooltip" data-tip="Home">
-                <button
-                  class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
-                >
-                  <i class="fa-regular fa-house"></i>
-                </button>
-              </div>
-              <div class="tooltip" data-tip="Edit">
-                <button
-                  class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
-                >
-                  <i class="fa-regular fa-pen"></i>
-                </button>
-              </div>
-              <div class="tooltip" data-tip="Add">
-                <button
-                  class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
-                >
-                  <i class="fa-regular fa-user-plus"></i>
-                </button>
-              </div>
-              <div class="tooltip" data-tip="Bookmark">
-                <button
-                  class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
-                >
-                  <i class="fa-regular fa-flag"></i>
-                </button>
-              </div>
-              <div class="tooltip" data-tip="Sign In">
-                <button
-                  class="btn bg-[#797DFC] text-xl text-white font-bold rounded-3xl mr-4 max-sm:rounded-full max-sm:btn-circle"
-                >
-                  <span class="max-md:hidden">Sign In</span
-                  ><span class="md:hidden lg:hidden"
-                    ><i class="fa-solid fa-right-to-bracket"></i
-                  ></span>
-                </button>
-              </div>
+      <!-- Navbar Start -->
+      <nav
+        class="container mx-auto my-8 px-2 lg:px-16 flex justify-between flex-wrap font-mulish"
+      >
+        <div class="">
+          <a class="btn btn-ghost font-black text-4xl">ReTro</a>
+        </div>
+
+        <div class="">
+          <div class="flex gap-x-2 justify-center ml-4">
+            <div class="tooltip" data-tip="Home">
+              <button
+                class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
+              >
+                <i class="fa-regular fa-house"></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Edit">
+              <button
+                class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
+              >
+                <i class="fa-regular fa-pen"></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Add">
+              <button
+                class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
+              >
+                <i class="fa-regular fa-user-plus"></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Bookmark">
+              <button
+                class="text-xl btn btn-ghost btn-circle border border-[#0307121A] bg-[#12132D08] text-[#12132D99]"
+              >
+                <i class="fa-regular fa-flag"></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Sign In">
+              <button
+                class="btn btn-ghost bg-[#797DFC] text-xl text-white font-bold rounded-3xl max-sm:rounded-full max-sm:btn-circle"
+              >
+                <span class="max-md:hidden">Sign In</span
+                ><span class="md:hidden lg:hidden"
+                  ><i class="fa-solid fa-right-to-bracket"></i
+                ></span>
+              </button>
             </div>
           </div>
         </div>
       </nav>
+      <!-- Navbar End -->
+      <!-- Banner Start -->
+      <div class="container mx-auto px-4 lg:px-16">
+        <div class="hero rounded-2xl bg-[#12132D]">
+          <div
+            class="hero-overlay bg-[url('./res/bgbanner.png')] bg-cover rounded-2xl bg-no-repeat"
+          ></div>
+          <div class="w-full p-10">
+            <div class="flex flex-col md:flex-row justify-between gap-10">
+              <div class="flex flex-col space-y-6">
+                <h1 class="font-black text-white text-6xl">
+                  Welcome to the
+                  <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-[#797DFC] to-[#797DFC1B]"
+                    >ReTro</span
+                  >
+                  Forum
+                </h1>
+                <p class="text-xl text-[#FFFFFFCC]">
+                  Share your most valued opinion and stand a chance to win a
+                  coffee mug exclusive to the forum!
+                </p>
+
+                <form class="bg-white rounded-3xl flex justify-between p-1">
+                  <input
+                    type="text"
+                    class="rounded-3xl ml-2"
+                    placeholder="Search here anything"
+                    id="search"
+                  />
+                  <button
+                    type="submit"
+                    class="btn bg-[#797DFC] text-xl text-white font-bold rounded-3xl max-sm:rounded-full max-sm:btn-circle"
+                  >
+                    <span class="max-md:hidden">Search</span
+                    ><span class="md:hidden lg:hidden"
+                      ><i class="fa-solid fa-search"></i
+                    ></span>
+                  </button>
+                </form>
+              </div>
+
+              <div
+                class="bg-white lg:w-[60%] p-6 rounded-2xl text-[#12132DCC] font-medium text-2xl"
+              >
+                <div class="flex justify-between my-4">
+                  <p>Registered Users</p>
+                  <p>01</p>
+                </div>
+                <div class="flex justify-between my-4">
+                  <p>Forum</p>
+                  <p>05</p>
+                </div>
+                <div class="flex justify-between my-4">
+                  <p>Topics</p>
+                  <p>01</p>
+                </div>
+                <div class="flex justify-between my-4">
+                  <p>Replies</p>
+                  <p>01</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner End -->
     </header>
     <main></main>
     <footer></footer>
