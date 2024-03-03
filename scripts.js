@@ -16,7 +16,7 @@ class cardGen {
     this.posted_time = posted_time;
   }
   articleCard() {
-    return `<div class="bg-[#F3F3F5] p-10 rounded-3xl flex gap-6 w-full">
+    return `<div class="bg-[#F3F3F5] hover:bg-[#797DFC1A] border border-white hover:border-[#797DFC] p-10 rounded-3xl flex gap-6 w-full">
     <div class="indicator">
       <span class="bg-${this.isActive ? 'green' : 'red'}-500 indicator-item badge"></span>
       <div
@@ -121,8 +121,9 @@ function search() {
   const searchTerm = document.getElementById("search")
   const articleContainer = document.getElementById("article-container")
   articleContainer.innerHTML = `<div class="w-full flex items-center justify-center">
-  <span class="loading loading-spinner loading-lg w-28"></span>
+  <span id="spinnn" class="loading loading-spinner loading-lg w-28"></span>
 </div>`
+  articleContainer.scrollIntoView({ behavior: 'smooth' });
   setTimeout(function () {
     articleContainer.innerHTML = "";
     loadbySearch(searchTerm.value);
