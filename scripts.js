@@ -27,7 +27,7 @@ class cardGen {
     </div>
     <div class="space-y-4 w-full">
       <div
-        class="flex space-x-5 font-inter font-medium text-sm text-[#12132DCC]"
+        class="flex justify-between md:justify-start md:gap-x-5 lg:gap-x-5 font-inter font-medium text-sm text-[#12132DCC]"
       >
         <p># ${this.category}</p>
         <p>Author : ${this.author.name}</p>
@@ -41,7 +41,7 @@ class cardGen {
       <hr class="my-4 border border-dashed" />
       <div class="flex items-center justify-between ">
         <div
-          class="flex space-x-5 font-inter font-medium text-sm text-[#12132D99]"
+          class="flex gap-x-2 md:gap-x-5 font-inter font-medium text-sm text-[#12132D99]"
         >
           <p><i class="fa-regular fa-message-lines"></i> ${this.comment_count}</p>
           <p><i class="fa-regular fa-eye"></i> ${this.view_count}</p>
@@ -149,12 +149,12 @@ function markAsRead(title, views) {
   class="flex items-center justify-between p-6 bg-white rounded-3xl"
 >
   <h3
-    class="text-base text-left font-semibold font-mulish text-[#12132D]"
+    class="text-base font-semibold font-mulish text-[#12132D]"
   >
     ${title}
   </h3>
   <p
-    class="w-[40%] text-right font-inter font-medium text-sm text-[#12132D99]"
+    class="font-inter font-medium text-sm text-[#12132D99]"
   >
     <i class="fa-regular fa-eye"></i> ${views}
   </p>
