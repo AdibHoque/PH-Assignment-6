@@ -18,11 +18,11 @@ class cardGen {
     this.posted_time = posted_time;
   }
   articleCard() {
-    return `<div class="bg-[#F3F3F5] hover:bg-[#797DFC1A] border border-white hover:border-[#797DFC] p-10 rounded-3xl flex gap-6 w-full">
+    return `<div class="bg-[#F3F3F5] hover:bg-[#797DFC1A] border border-white hover:border-[#797DFC] p-3 md:p-5 lg:p-10 rounded-3xl flex gap-3 lg:gap-6 w-full">
     <div class="indicator">
       <span class="bg-${this.isActive ? 'green' : 'red'}-500 indicator-item badge"></span>
       <div
-        class="grid w-20 h-20 bg-[url('${this.image}')] bg-cover place-items-center rounded-2xl"
+        class="grid max-sm:w-14 max-sm:h-14 w-20 h-20 bg-[url('${this.image}')] bg-cover place-items-center rounded-2xl"
       ></div>
     </div>
     <div class="space-y-4 w-full">
