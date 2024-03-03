@@ -1,6 +1,8 @@
 const articleContainer = document.getElementById("article-container")
 const markAsReadContainer = document.getElementById("markAsRead-container")
+const latestPosts = document.getElementById("latest-posts")
 loadAll()
+loadLatest()
 
 class cardGen {
   constructor(id, category, image, isActive, title, author, description, comment_count, view_count, posted_time) {
@@ -94,6 +96,52 @@ async function loadbySearch(search) {
     const articleCard = articleCardGen.articleCard()
     articleContainer.innerHTML += articleCard;
   });
+}
+async function loadLatest() {
+  const data = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`)
+  const body = await data.json()
+  body.forEach(p => {
+    const date = p.author?.posted_date || "No publish date"
+    const designation = p.author?.designation || "Unknown"
+    latestPosts.innerHTML += ` <div class="card bg-white rounded-2xl border border-[#12132D26]">
+    <figure class="px-5 pt-5">
+      <img
+        src="${p.cover_image}"
+        alt="Post"
+        class="rounded-xl"
+      />
+    </figure>
+    <div class="items-start text-left card-body">
+      <p class="font-inter text-[#12132D99]">
+        <i class="fa-light fa-calendar"></i> ${date}
+      </p>
+      <h2 class="font-extrabold card-title font-mulish">
+        ${p.title}
+      </h2>
+      <p class="text-[#12132D99] font-inter">
+        ${p.description}
+      </p>
+      <div class="flex mt-3 gap-x-4">
+        <div class="avatar">
+          <div class="w-12 rounded-full">
+            <img
+              src="${p.profile_image}"
+            />
+          </div>
+        </div>
+        <div>
+          <h2 class="text-[#12132D] font-mulish font-bold">
+            ${p.author.name}
+          </h2>
+          <p class="font-mulish text-[#12132D99] text-sm">
+            ${designation}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>`
+  })
+
 }
 
 function markAsRead(title, views) {
