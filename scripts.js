@@ -1,6 +1,6 @@
 const articleContainer = document.getElementById("article-container")
 const markAsReadContainer = document.getElementById("markAsRead-container")
-
+loadAll()
 
 class cardGen {
   constructor(id, category, image, isActive, title, author, description, comment_count, view_count, posted_time) {
@@ -45,7 +45,7 @@ class cardGen {
           <p><i class="fa-regular fa-eye"></i> ${this.view_count}</p>
           <p><i class="fa-regular fa-clock"></i> ${this.posted_time} min</p>
         </div>
-        <button id="${this.id}" onclick="markAsRead('${this.title}', '${this.view_count}')" class="btn btn-circle">
+        <button id="${this.id}" onclick='markAsRead("${this.title.replace("'", "&#39;")}", "${this.view_count}")' class="btn btn-circle">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"
@@ -81,6 +81,20 @@ async function loadAll() {
     articleContainer.innerHTML += articleCard;
   });
 }
+async function loadbySearch(search) {
+  const data = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${search}`)
+  const body = await data.json()
+  if (body.posts.length == 0) return articleContainer.innerHTML = `<div class="w-full flex items-center justify-center">
+  <h4 class="text-xl font-bold font-mulish text-[#12132D]">
+  No posts found!!!
+  </h4>
+</div> `;
+  body.posts.forEach(post => {
+    const articleCardGen = new cardGen(post.id, post.category, post.image, post.isActive, post.title, post.author, post.description, post.comment_count, post.view_count, post.posted_time)
+    const articleCard = articleCardGen.articleCard()
+    articleContainer.innerHTML += articleCard;
+  });
+}
 
 function markAsRead(title, views) {
   const newMark = `<div
@@ -102,4 +116,15 @@ function markAsRead(title, views) {
   markAsReadContainer.innerHTML += newMark;
 
 }
-loadAll()
+
+function search() {
+  const searchTerm = document.getElementById("search")
+  const articleContainer = document.getElementById("article-container")
+  articleContainer.innerHTML = `<div class="w-full flex items-center justify-center">
+  <span class="loading loading-spinner loading-lg w-28"></span>
+</div>`
+  setTimeout(function () {
+    articleContainer.innerHTML = "";
+    loadbySearch(searchTerm.value);
+  }, 2000);
+}

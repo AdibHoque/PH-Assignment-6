@@ -40,10 +40,10 @@
     <header>
       <!-- Navbar Start -->
       <nav
-        class="container flex flex-wrap justify-between px-2 mx-auto my-8 lg:px-16 font-mulish"
+        class="container flex flex-wrap justify-between gap-4 px-2 mx-auto my-8 lg:px-16 font-mulish"
       >
         <div class="">
-          <a class="text-4xl font-black btn btn-ghost">ReTro</a>
+          <a class="text-4xl font-black btn btn-ghost">MeTro</a>
         </div>
 
         <div class="">
@@ -76,14 +76,19 @@
                 <i class="fa-regular fa-flag"></i>
               </button>
             </div>
-            <div class="tooltip" data-tip="Sign In">
+            <div class="tooltip md:hidden" data-tip="Sign In">
               <button
-                class="btn btn-ghost bg-[#797DFC] text-xl text-white font-bold rounded-3xl max-sm:rounded-full max-sm:btn-circle"
+                class="btn btn-ghost btn-circle bg-[#797DFC] text-xl text-white font-bold rounded-3xl max-sm:rounded-full"
               >
-                <span class="max-md:hidden">Sign In</span
-                ><span class="md:hidden lg:hidden"
-                  ><i class="fa-solid fa-right-to-bracket"></i
-                ></span>
+                <i class="fa-solid fa-right-to-bracket"></i>
+              </button>
+            </div>
+
+            <div class="tooltip max-md:hidden" data-tip="Sign In">
+              <button
+                class="btn btn-ghost bg-[#797DFC] text-xl text-white font-bold rounded-3xl"
+              >
+                Sign In
               </button>
             </div>
           </div>
@@ -94,7 +99,7 @@
       <div class="container px-4 mx-auto lg:px-16">
         <div class="hero rounded-2xl bg-[#12132D]">
           <div
-            class="hero-overlay bg-[url('./res/bgbanner.png')] bg-cover rounded-2xl bg-no-repeat"
+            class="hero-overlay rounded-2xl bg-[url('./res/bgbanner.png')] bg-contain bg-bottom bg-no-repeat"
           ></div>
           <div class="w-full p-10">
             <div class="flex flex-col justify-between gap-10 lg:flex-row">
@@ -103,7 +108,7 @@
                   Welcome to the
                   <span
                     class="bg-clip-text text-transparent bg-gradient-to-r from-[#797DFC] to-[#797DFC1B]"
-                    >ReTro</span
+                    >MeTro</span
                   >
                   Forum
                 </h1>
@@ -112,15 +117,15 @@
                   coffee mug exclusive to the forum!
                 </p>
 
-                <form class="flex justify-between p-1 bg-white rounded-3xl">
+                <div class="flex justify-between p-1 bg-white rounded-3xl">
                   <input
                     type="text"
-                    class="ml-2 rounded-3xl"
+                    class="w-full ml-2 rounded-3xl"
                     placeholder="Search here anything"
                     id="search"
                   />
                   <button
-                    type="submit"
+                    onclick="search()"
                     class="btn bg-[#797DFC] text-xl text-white font-bold rounded-3xl max-sm:rounded-full max-sm:btn-circle"
                   >
                     <span class="max-md:hidden">Search</span
@@ -128,7 +133,7 @@
                       ><i class="fa-solid fa-search"></i
                     ></span>
                   </button>
-                </form>
+                </div>
               </div>
 
               <div
@@ -175,7 +180,10 @@
         <!-- Dynamic Section -->
         <div class="flex flex-col justify-between gap-6 lg:flex-row">
           <!-- Article Cards -->
-          <div id="article-container" class="flex flex-col space-y-6"></div>
+          <div
+            id="article-container"
+            class="flex flex-col w-full space-y-6"
+          ></div>
 
           <!-- Mark as Read Cards -->
           <div
