@@ -20,7 +20,7 @@ class cardGen {
   articleCard() {
     return `<div class="bg-[#F3F3F5] hover:bg-[#797DFC1A] border border-white hover:border-[#797DFC] p-3 md:p-5 lg:p-10 rounded-3xl flex gap-3 lg:gap-6 w-full">
     <div class="indicator">
-      <span class="bg-${this.isActive ? 'green' : 'red'}-500 indicator-item badge"></span>
+      <span class="bg-${this.isActive ? 'green' : 'red'}-500 indicator-item badge animate-pulse"></span>
       <div
         class="grid max-sm:w-14 max-sm:h-14 w-20 h-20 bg-[url('${this.image}')] bg-cover place-items-center rounded-2xl"
       ></div>
@@ -47,7 +47,8 @@ class cardGen {
           <p><i class="fa-regular fa-eye"></i> ${this.view_count}</p>
           <p><i class="fa-regular fa-clock"></i> ${this.posted_time} min</p>
         </div>
-        <button id="${this.id}" onclick='markAsRead("${this.title.replace("'", "&#39;")}", "${this.view_count}")' class="btn btn-circle">
+        <div class="tooltip" data-tip="Mark As Read">
+        <button id="${this.id}" onclick='markAsRead("${this.title.replace("'", "&#39;")}", "${this.view_count}")' class="btn btn-circle hover:animate-bounce">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"
@@ -68,6 +69,7 @@ class cardGen {
           </defs>
         </svg>
         </button>
+        </div>
       </div>
     </div>
   </div>`
